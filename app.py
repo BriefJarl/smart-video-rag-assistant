@@ -36,7 +36,6 @@ st.markdown("""
     color: white;
     border-radius: 8px;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -45,8 +44,8 @@ st.markdown("""
 # -----------------------------
 st.sidebar.title("Controls")
 
-top_k = st.sidebar.slider("Top Results", 1, 10, 5)
-threshold = st.sidebar.slider("Similarity Threshold", 0.1, 1.0, 0.55)
+top_k = st.sidebar.slider("Top Results", 1, 10, 8)   
+threshold = st.sidebar.slider("Similarity Threshold", 0.1, 1.0, 0.35)  
 show_chunks = st.sidebar.checkbox("Show Retrieved Chunks", True)
 
 # -----------------------------
@@ -115,7 +114,9 @@ st.write("Ask questions from your course videos")
 examples = [
     "What is overflow property?",
     "Difference between overflow and text-overflow",
-    "How to handle long text in div"
+    "How to handle long text in div",
+    "What is overflow x and y",
+    "How to add scroll bar in css"
 ]
 
 selected = st.selectbox("Try an example:", [""] + examples)
@@ -154,15 +155,21 @@ if user_input:
     # FILTER
     filtered_indices = [i for i, score in enumerate(similarities) if score > threshold]
 
+    # FALLBACK LOGIC
     if not filtered_indices:
-        st.error("No relevant answer found")
-        st.stop()
+        sorted_indices = np.argsort(similarities)[::-1]
+        top_idx = sorted_indices[:top_k]
+    else:
+        sorted_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)
+        top_idx = sorted_indices[:top_k]
 
-    # SORT
-    sorted_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)
-    top_idx = sorted_indices[:top_k]
+    # LOW CONFIDENCE WARNING
+    avg_score = np.mean([similarities[i] for i in top_idx])
+    if avg_score < threshold:
+        st.warning("Low confidence answer (limited matching context)")
 
-    # CONTEXT BUILDING
+    st.write("Max similarity:", float(max(similarities)))
+
     context = ""
     for idx in top_idx:
         row = df.iloc[idx]
@@ -172,11 +179,11 @@ if user_input:
         ---
         """
 
-    # PROMPT
     prompt = f"""
     You are a helpful assistant for a web development course.
 
-    Use ONLY the context below to answer.
+    Use the context below to answer the question.
+    If the context is limited, still try to provide a helpful answer using general knowledge.
 
     Context:
     {context}
@@ -184,12 +191,11 @@ if user_input:
     Question:
     {user_input}
 
-    Instructions:
-    - Answer clearly and naturally
-    - Mention timestamps if relevant
+    Give a clear and helpful answer.
+    Mention timestamps if relevant.
     """
 
-    # LLM CALL WITH SPINNER
+    # LLM CALL
     with st.spinner("Searching and generating answer..."):
         answer = inference(prompt)
 
@@ -203,7 +209,7 @@ for msg in st.session_state.messages:
         st.write(msg["content"])
 
 # -----------------------------
-# SOURCES + DEBUG
+# SOURCES
 # -----------------------------
 if user_input and show_chunks:
 
