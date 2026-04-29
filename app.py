@@ -52,14 +52,14 @@ show_chunks = st.sidebar.checkbox("Show Retrieved Chunks", True)
 @st.cache_resource
 def load_data():
     if not os.path.exists("embeddings.joblib"):
-        st.error("embeddings.joblib missing ❌")
+        st.error("embeddings.joblib not found")
         st.stop()
     return joblib.load("embeddings.joblib")
 
 df = load_data()
 
 # -----------------------------
-# SAFE EMBEDDING (NO OLLAMA)
+# TF-IDF (CLOUD SAFE)
 # -----------------------------
 @st.cache_resource
 def get_vectorizer(texts):
@@ -73,7 +73,7 @@ def get_query_embedding(query):
     return vectorizer.transform([query]).toarray()[0]
 
 # -----------------------------
-# TEXT HIGHLIGHT
+# HIGHLIGHT
 # -----------------------------
 def highlight(text, query):
     for word in query.split():
@@ -113,8 +113,8 @@ if user_input:
 
     query_embedding = get_query_embedding(user_input)
 
-    # SIMILARITY
-    matrix = np.vstack(df['embedding'])
+    matrix = vectorizer.transform(df['text']).toarray()
+
     similarities = cosine_similarity(matrix, [query_embedding]).flatten()
 
     # FILTER
@@ -131,19 +131,22 @@ if user_input:
     # CONFIDENCE
     avg_score = np.mean([similarities[i] for i in top_idx])
     if avg_score < threshold:
-        st.warning("⚠️ Low confidence answer")
+        st.warning("Low confidence answer")
 
-    # DEBUG
     st.write("Max similarity:", float(max(similarities)))
 
-    # CONTEXT
-    context = []
+    # -----------------------------
+    # CONTEXT → FINAL ANSWER
+    # -----------------------------
+    context_chunks = []
     for idx in top_idx:
         row = df.iloc[idx]
-        context.append(f"• {row.get('text', '')}")
+        context_chunks.append(f"""
+Time: {row.get('start', 'NA')} - {row.get('end', 'NA')}
+{row.get('text', '')}
+""")
 
-    # FINAL ANSWER (NO LLM)
-    answer = "\n\n".join(context[:3])
+    answer = "\n\n".join(context_chunks[:3])
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
 
