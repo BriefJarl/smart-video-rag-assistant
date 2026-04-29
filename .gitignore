@@ -37,7 +37,10 @@ Thumbs.db
 clean_chunks.json
 embeddings.json
 output.json
-embeddings.joblib
+
+# Ignore all joblib EXCEPT embeddings
+*.joblib
+!embeddings.joblib
 
 # -----------------------------
 # Audio / Video / Models (HEAVY)
@@ -48,7 +51,7 @@ ffmpeg/
 whisper/
 
 # -----------------------------
-# Optional (if you add later)
+# Optional
 # -----------------------------
 *.log
 *.csv
