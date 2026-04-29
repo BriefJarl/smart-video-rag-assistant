@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-import requests
 import re
 import os
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # -----------------------------
 # PAGE CONFIG
@@ -25,13 +25,11 @@ st.markdown("""
     background: linear-gradient(135deg, #0f172a, #1e3a8a);
     color: white;
 }
-
 [data-testid="stChatMessage"] {
     background-color: #1e293b;
     border-radius: 12px;
     padding: 10px;
 }
-
 .stButton button {
     background-color: #2563eb;
     color: white;
@@ -41,88 +39,41 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -----------------------------
-# SIDEBAR CONTROLS
+# SIDEBAR
 # -----------------------------
 st.sidebar.title("Controls")
-
 top_k = st.sidebar.slider("Top Results", 1, 10, 8)
 threshold = st.sidebar.slider("Similarity Threshold", 0.1, 1.0, 0.35)
 show_chunks = st.sidebar.checkbox("Show Retrieved Chunks", True)
 
 # -----------------------------
-# LOAD DATA (SAFE VERSION)
+# LOAD DATA
 # -----------------------------
 @st.cache_resource
 def load_data():
     if not os.path.exists("embeddings.joblib"):
-        st.error("embeddings.joblib not found")
-
-        st.info("""
-👉 This app requires precomputed embeddings.
-
-To fix:
-1. Run locally:
-   python Chunks.py
-   python create_embeddings.py
-   python save_embeddings.py
-
-2. Upload embeddings.joblib to GitHub
-""")
+        st.error("embeddings.joblib missing ❌")
         st.stop()
-
     return joblib.load("embeddings.joblib")
 
 df = load_data()
 
 # -----------------------------
-# EMBEDDING FUNCTION
+# SAFE EMBEDDING (NO OLLAMA)
 # -----------------------------
-def create_embedding(text_list):
-    try:
-        r = requests.post(
-            "http://localhost:11434/api/embed",
-            json={
-                "model": "bge-m3",
-                "input": text_list
-            },
-            timeout=10
-        )
-    except:
-        st.error("Ollama embedding server not running")
-        return []
+@st.cache_resource
+def get_vectorizer(texts):
+    vectorizer = TfidfVectorizer()
+    vectorizer.fit(texts)
+    return vectorizer
 
-    if r.status_code != 200:
-        st.error("Embedding error")
-        return []
+vectorizer = get_vectorizer(df["text"])
 
-    return r.json().get("embeddings", [])
+def get_query_embedding(query):
+    return vectorizer.transform([query]).toarray()[0]
 
 # -----------------------------
-# LLM FUNCTION
-# -----------------------------
-def inference(prompt):
-    try:
-        r = requests.post(
-            "http://localhost:11434/api/generate",
-            json={
-                "model": "llama3",
-                "prompt": prompt,
-                "stream": False
-            },
-            timeout=20
-        )
-    except:
-        st.error(" Ollama LLM not running")
-        return ""
-
-    if r.status_code != 200:
-        st.error("LLM error")
-        return ""
-
-    return r.json().get("response", "")
-
-# -----------------------------
-# TEXT HIGHLIGHT FUNCTION
+# TEXT HIGHLIGHT
 # -----------------------------
 def highlight(text, query):
     for word in query.split():
@@ -130,14 +81,11 @@ def highlight(text, query):
     return text
 
 # -----------------------------
-# TITLE
+# UI
 # -----------------------------
 st.title("Smart Video RAG Assistant")
 st.write("Ask questions from your course videos")
 
-# -----------------------------
-# EXAMPLES
-# -----------------------------
 examples = [
     "What is overflow property?",
     "Difference between overflow and text-overflow",
@@ -148,9 +96,6 @@ examples = [
 
 selected = st.selectbox("Try an example:", [""] + examples)
 
-# -----------------------------
-# CHAT MEMORY
-# -----------------------------
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -166,12 +111,7 @@ if user_input:
 
     st.session_state.messages.append({"role": "user", "content": user_input})
 
-    query_embedding = create_embedding([user_input])
-
-    if not query_embedding:
-        st.stop()
-
-    query_embedding = query_embedding[0]
+    query_embedding = get_query_embedding(user_input)
 
     # SIMILARITY
     matrix = np.vstack(df['embedding'])
@@ -191,38 +131,19 @@ if user_input:
     # CONFIDENCE
     avg_score = np.mean([similarities[i] for i in top_idx])
     if avg_score < threshold:
-        st.warning(" Low confidence answer")
+        st.warning("⚠️ Low confidence answer")
 
+    # DEBUG
     st.write("Max similarity:", float(max(similarities)))
 
     # CONTEXT
-    context = ""
+    context = []
     for idx in top_idx:
         row = df.iloc[idx]
-        context += f"""
-        Time: {row.get('start', 'NA')} - {row.get('end', 'NA')}
-        Content: {row.get('text', '')}
-        ---
-        """
+        context.append(f"• {row.get('text', '')}")
 
-    # PROMPT
-    prompt = f"""
-You are a helpful assistant for a web development course.
-
-Use the context below to answer the question.
-If context is limited, still give a helpful answer.
-
-Context:
-{context}
-
-Question:
-{user_input}
-
-Answer clearly and mention timestamps if possible.
-"""
-
-    with st.spinner("Generating answer..."):
-        answer = inference(prompt)
+    # FINAL ANSWER (NO LLM)
+    answer = "\n\n".join(context[:3])
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
 
