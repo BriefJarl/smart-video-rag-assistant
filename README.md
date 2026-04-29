@@ -29,7 +29,8 @@ Instead of manually searching through long videos, users can:
 ## 🛠️ Tech Stack
 
 **Python, Pandas, NumPy, Scikit-learn**  
-**Ollama (LLM), bge-m3 (Embeddings)**  
+**Ollama (LLM), bge-m3 (Embeddings)**
+**Vector search, Cosine similarity**
 **Whisper, FFmpeg, NLTK**  
 **Joblib, Streamlit**
 
