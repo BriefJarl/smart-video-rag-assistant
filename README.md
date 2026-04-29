@@ -110,14 +110,15 @@ python create_embeddings.py
 python save_embeddings.py
 
 # Step 4: Run the app
-streamlit run app.py
+streamlit run rag_query.py
+
 🚀 Future Improvements
 🔹 FAISS / Vector Database integration
 🔹 Multi-video knowledge base
 🔹 Conversational memory (chat history)
 🔹 Cloud deployment (OpenAI / Groq APIs)
 🔹 UI/UX enhancements
-👩‍💻 Author
 
+👩‍💻 Author
 Bhumika Shaw
 Data Science @ IIT Madras
