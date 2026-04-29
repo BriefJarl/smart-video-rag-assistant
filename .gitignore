@@ -36,9 +36,12 @@ Thumbs.db
 # -----------------------------
 clean_chunks.json
 embeddings.json
-output.json
+# ❌ REMOVE this (important)
+# output.json
 
-# Ignore all joblib EXCEPT embeddings
+# -----------------------------
+# Joblib handling (IMPORTANT)
+# -----------------------------
 *.joblib
 !embeddings.joblib
 

@@ -1,0 +1,683 @@
+{
+    "full_text": " On our CSS box we watched a video that says that there is a bit less of an element and with Research located in the contents enter the items and format and then is it over potencial\u4e2d In this way we can monitor the production management of an overall cover of the house that joins the theme section horizontally or vertically to learn certain\u05d9\u05e7ages and we will use practical users in managing our project we now move on to ginger comment section of High Energy Hopefully to get a win this video in the video stream Let's go to the inter So, I have already seen the beauty street in this video, and here I will make a new filter And this is the video of the video, and today's video is on our overflow property What is this overflow property? Look, you have a dubbing in it, you have added an item in it, What will you do? You will do an overflow property, obviously Now, how do you want this to be handled? So, I have this box, it is written in it, I am a good boy, and I love to write law, I am 45 Okay, I have written this, obviously you will have some good content in the box And here you will have a style tag, I will write in the dot box Now, what will I tell you? I will give it a bit, let me give it a bit, You will see that, this is a viewport width of 40% width, and I will give a height of 40% of this, I will give it a bit, it is a bit of a bit of a height of 40% of this, Now, I will do a border of this, that will be 2 pixel, sorry black, And the other things you can see here, how you can see it, obviously you will see in the browser, Now I will do 10vh10v and I will do overflow. If I do this, I will do overflow. Now I will do overflow. I will try to fix it. I will try to fix it. I will use overflow property. I will use overflow and scroll. If I make overflow scroll, then it will be horizontal scroll. This will not be overflow. Now you can see that your work is done. You can use overflow scroll. Now overflow is related to all properties. I can do overflow here. If you do overflow, then you will not be able to see this scroll. For example, if your viewport was not good, then there is no chance of overflow. If you do overflow, then scroll bar is not needed. If you do overflow scroll, then scroll bar is not needed. You will see scroll bar. You will see scroll bar is not needed. I hope you understood why scroll bar is needed. Now if I do overflow white space, then I will write down white space. I will do this with no wrap. What will happen with no wrap? I will do white space with no wrap horizontally. I will do this with horizontal horizontally. If I do this, then I will do less. I will do this with 40. I will do this with 40. I will do this with 40. If I put ellipsis in overflow, then I will do ellipsis. I can do this with property or set. And ellipsis is a value that is dot. White space, no wrap or text overflow ellipsis is needed. I hope you all understood this. I will do this with format document. Note that this is overflow or text overflow. So don't pay attention to this. It is different from text overflow property. I am getting 3. If I do overflow hidden, then I get 3. If I scroll overflow, then I get 3. I have told the text overflow that I will do ellipsis. If I do this, then I will do this with scroll. I hope you all understood this. You can use this text overflow property. Now, the overflow clip is used. It is a bit more clean. The overflow clip is almost same. The clip is used for scrolling. If you have put overflow clip, then you can not scroll. Now, overflow can be handled individually. I will do text overflow and I will do text overflow. I will do this with white space. I want to see the content of this. Now, I have auto overflow. I will do height of small pieces. I will do 30. Now, I can control the overflow and the overflow by. I can say that if I do overflow X, then I will do hidden. But if I do Y, then I will scroll. I can also do this with individual properties. I can do this with overflow X. I am doing overflow X. I will do this with the height of the overflow clip. I will do this with overflow Y. I can write the overflow clip with short-hand. I can write it in 3 or 4 directions. The overflow clip is hidden in X and auto is in Y. I will do this with auto. I will do this with auto. I will do this with auto. I can see that this is hidden in Y. I will do this with auto. Now, people will ask me, how to do this? You will do it. If you scroll here and hidden here, then you will scroll overflow X. If you scroll here, then you will scroll over here. I will recommend auto. If scroll bar is needed, then scroll bar is not available. You will not get scroll bar. I hope you understood. That was all about this scrolling and overflow. You will understand how to add scroll bar. We will use it a lot. If you have not done the success of Sigma or Elephant course, then do it. If you have done it, then do it. And the data I am updating regularly on the source. You will get it. Thank you so much guys for watching this video. I will see you next time. Bye.",
+    "chunks": [
+        {
+            "id": 0,
+            "start": 0.0,
+            "end": 8.5,
+            "text": " On our CSS box we watched a video that says that there is a bit less of an element and with Research located in the contents enter the items and format and then is it over potencial\u4e2d"
+        },
+        {
+            "id": 1,
+            "start": 8.5,
+            "end": 15.88,
+            "text": " In this way we can monitor the production management of an overall cover of the house that joins the theme section"
+        },
+        {
+            "id": 2,
+            "start": 15.88,
+            "end": 18.740000000000002,
+            "text": " horizontally or vertically to learn certain\u05d9\u05e7ages"
+        },
+        {
+            "id": 3,
+            "start": 18.740000000000002,
+            "end": 21.84,
+            "text": " and we will use practical users in managing our project"
+        },
+        {
+            "id": 4,
+            "start": 21.84,
+            "end": 26.1,
+            "text": " we now move on to ginger comment section of High Energy"
+        },
+        {
+            "id": 5,
+            "start": 26.1,
+            "end": 28.28,
+            "text": " Hopefully to get a win this video in the video stream"
+        },
+        {
+            "id": 6,
+            "start": 28.28,
+            "end": 29.48,
+            "text": " Let's go to the inter"
+        },
+        {
+            "id": 7,
+            "start": 30.0,
+            "end": 44.0,
+            "text": " So, I have already seen the beauty street in this video, and here I will make a new filter"
+        },
+        {
+            "id": 8,
+            "start": 44.0,
+            "end": 50.0,
+            "text": " And this is the video of the video, and today's video is on our overflow property"
+        },
+        {
+            "id": 9,
+            "start": 50.0,
+            "end": 56.0,
+            "text": " What is this overflow property? Look, you have a dubbing in it, you have added an item in it,"
+        },
+        {
+            "id": 10,
+            "start": 56.0,
+            "end": 59.0,
+            "text": " What will you do? You will do an overflow property, obviously"
+        },
+        {
+            "id": 11,
+            "start": 59.0,
+            "end": 64.0,
+            "text": " Now, how do you want this to be handled?"
+        },
+        {
+            "id": 12,
+            "start": 64.0,
+            "end": 72.0,
+            "text": " So, I have this box, it is written in it, I am a good boy, and I love to write law, I am 45"
+        },
+        {
+            "id": 13,
+            "start": 72.0,
+            "end": 78.0,
+            "text": " Okay, I have written this, obviously you will have some good content in the box"
+        },
+        {
+            "id": 14,
+            "start": 78.0,
+            "end": 84.0,
+            "text": " And here you will have a style tag, I will write in the dot box"
+        },
+        {
+            "id": 15,
+            "start": 84.0,
+            "end": 89.0,
+            "text": " Now, what will I tell you? I will give it a bit, let me give it a bit,"
+        },
+        {
+            "id": 16,
+            "start": 89.0,
+            "end": 97.0,
+            "text": " You will see that, this is a viewport width of 40% width, and I will give a height of 40% of this,"
+        },
+        {
+            "id": 17,
+            "start": 97.0,
+            "end": 100.0,
+            "text": " I will give it a bit, it is a bit of a bit of a height of 40% of this,"
+        },
+        {
+            "id": 18,
+            "start": 100.0,
+            "end": 104.0,
+            "text": " Now, I will do a border of this, that will be 2 pixel, sorry black,"
+        },
+        {
+            "id": 19,
+            "start": 104.0,
+            "end": 109.0,
+            "text": " And the other things you can see here, how you can see it, obviously you will see in the browser,"
+        },
+        {
+            "id": 20,
+            "start": 109.0,
+            "end": 119.0,
+            "text": " Now I will do 10vh10v and I will do overflow."
+        },
+        {
+            "id": 21,
+            "start": 119.0,
+            "end": 123.0,
+            "text": " If I do this, I will do overflow."
+        },
+        {
+            "id": 22,
+            "start": 123.0,
+            "end": 127.0,
+            "text": " Now I will do overflow."
+        },
+        {
+            "id": 23,
+            "start": 127.0,
+            "end": 130.0,
+            "text": " I will try to fix it."
+        },
+        {
+            "id": 24,
+            "start": 130.0,
+            "end": 134.0,
+            "text": " I will try to fix it."
+        },
+        {
+            "id": 25,
+            "start": 134.0,
+            "end": 136.0,
+            "text": " I will use overflow property."
+        },
+        {
+            "id": 26,
+            "start": 136.0,
+            "end": 140.0,
+            "text": " I will use overflow and scroll."
+        },
+        {
+            "id": 27,
+            "start": 140.0,
+            "end": 144.0,
+            "text": " If I make overflow scroll, then it will be horizontal scroll."
+        },
+        {
+            "id": 28,
+            "start": 144.0,
+            "end": 148.0,
+            "text": " This will not be overflow."
+        },
+        {
+            "id": 29,
+            "start": 148.0,
+            "end": 152.0,
+            "text": " Now you can see that your work is done."
+        },
+        {
+            "id": 30,
+            "start": 152.0,
+            "end": 156.0,
+            "text": " You can use overflow scroll."
+        },
+        {
+            "id": 31,
+            "start": 156.0,
+            "end": 160.0,
+            "text": " Now overflow is related to all properties."
+        },
+        {
+            "id": 32,
+            "start": 160.0,
+            "end": 164.0,
+            "text": " I can do overflow here."
+        },
+        {
+            "id": 33,
+            "start": 164.0,
+            "end": 172.0,
+            "text": " If you do overflow, then you will not be able to see this scroll."
+        },
+        {
+            "id": 34,
+            "start": 172.0,
+            "end": 180.0,
+            "text": " For example, if your viewport was not good, then there is no chance of overflow."
+        },
+        {
+            "id": 35,
+            "start": 180.0,
+            "end": 190.0,
+            "text": " If you do overflow, then scroll bar is not needed."
+        },
+        {
+            "id": 36,
+            "start": 190.0,
+            "end": 198.0,
+            "text": " If you do overflow scroll, then scroll bar is not needed."
+        },
+        {
+            "id": 37,
+            "start": 198.0,
+            "end": 204.0,
+            "text": " You will see scroll bar."
+        },
+        {
+            "id": 38,
+            "start": 204.0,
+            "end": 208.0,
+            "text": " You will see scroll bar is not needed."
+        },
+        {
+            "id": 39,
+            "start": 208.0,
+            "end": 210.0,
+            "text": " I hope you understood why scroll bar is needed."
+        },
+        {
+            "id": 40,
+            "start": 210.0,
+            "end": 218.0,
+            "text": " Now if I do overflow white space, then I will write down white space."
+        },
+        {
+            "id": 41,
+            "start": 218.0,
+            "end": 220.0,
+            "text": " I will do this with no wrap."
+        },
+        {
+            "id": 42,
+            "start": 220.0,
+            "end": 222.0,
+            "text": " What will happen with no wrap?"
+        },
+        {
+            "id": 43,
+            "start": 222.0,
+            "end": 226.0,
+            "text": " I will do white space with no wrap horizontally."
+        },
+        {
+            "id": 44,
+            "start": 226.0,
+            "end": 228.0,
+            "text": " I will do this with horizontal horizontally."
+        },
+        {
+            "id": 45,
+            "start": 228.0,
+            "end": 232.0,
+            "text": " If I do this, then I will do less."
+        },
+        {
+            "id": 46,
+            "start": 232.0,
+            "end": 236.0,
+            "text": " I will do this with 40."
+        },
+        {
+            "id": 47,
+            "start": 236.0,
+            "end": 240.0,
+            "text": " I will do this with 40."
+        },
+        {
+            "id": 48,
+            "start": 240.0,
+            "end": 242.0,
+            "text": " I will do this with 40."
+        },
+        {
+            "id": 49,
+            "start": 242.0,
+            "end": 252.0,
+            "text": " If I put ellipsis in overflow, then I will do ellipsis."
+        },
+        {
+            "id": 50,
+            "start": 252.0,
+            "end": 256.0,
+            "text": " I can do this with property or set."
+        },
+        {
+            "id": 51,
+            "start": 256.0,
+            "end": 260.0,
+            "text": " And ellipsis is a value that is dot."
+        },
+        {
+            "id": 52,
+            "start": 260.0,
+            "end": 266.0,
+            "text": " White space, no wrap or text overflow ellipsis is needed."
+        },
+        {
+            "id": 53,
+            "start": 266.0,
+            "end": 268.0,
+            "text": " I hope you all understood this."
+        },
+        {
+            "id": 54,
+            "start": 268.0,
+            "end": 272.0,
+            "text": " I will do this with format document."
+        },
+        {
+            "id": 55,
+            "start": 272.0,
+            "end": 276.0,
+            "text": " Note that this is overflow or text overflow."
+        },
+        {
+            "id": 56,
+            "start": 276.0,
+            "end": 278.0,
+            "text": " So don't pay attention to this."
+        },
+        {
+            "id": 57,
+            "start": 278.0,
+            "end": 282.0,
+            "text": " It is different from text overflow property."
+        },
+        {
+            "id": 58,
+            "start": 282.0,
+            "end": 284.0,
+            "text": " I am getting 3."
+        },
+        {
+            "id": 59,
+            "start": 284.0,
+            "end": 288.0,
+            "text": " If I do overflow hidden, then I get 3."
+        },
+        {
+            "id": 60,
+            "start": 288.0,
+            "end": 292.0,
+            "text": " If I scroll overflow, then I get 3."
+        },
+        {
+            "id": 61,
+            "start": 292.0,
+            "end": 296.0,
+            "text": " I have told the text overflow that I will do ellipsis."
+        },
+        {
+            "id": 62,
+            "start": 296.0,
+            "end": 300.0,
+            "text": " If I do this, then I will do this with scroll."
+        },
+        {
+            "id": 63,
+            "start": 300.0,
+            "end": 302.0,
+            "text": " I hope you all understood this."
+        },
+        {
+            "id": 64,
+            "start": 302.0,
+            "end": 304.0,
+            "text": " You can use this text overflow property."
+        },
+        {
+            "id": 65,
+            "start": 304.0,
+            "end": 308.0,
+            "text": " Now, the overflow clip is used."
+        },
+        {
+            "id": 66,
+            "start": 308.0,
+            "end": 310.0,
+            "text": " It is a bit more clean."
+        },
+        {
+            "id": 67,
+            "start": 310.0,
+            "end": 314.0,
+            "text": " The overflow clip is almost same."
+        },
+        {
+            "id": 68,
+            "start": 314.0,
+            "end": 318.0,
+            "text": " The clip is used for scrolling."
+        },
+        {
+            "id": 69,
+            "start": 318.0,
+            "end": 322.0,
+            "text": " If you have put overflow clip, then you can not scroll."
+        },
+        {
+            "id": 70,
+            "start": 322.0,
+            "end": 326.0,
+            "text": " Now, overflow can be handled individually."
+        },
+        {
+            "id": 71,
+            "start": 326.0,
+            "end": 330.0,
+            "text": " I will do text overflow and I will do text overflow."
+        },
+        {
+            "id": 72,
+            "start": 330.0,
+            "end": 334.0,
+            "text": " I will do this with white space."
+        },
+        {
+            "id": 73,
+            "start": 334.0,
+            "end": 338.0,
+            "text": " I want to see the content of this."
+        },
+        {
+            "id": 74,
+            "start": 338.0,
+            "end": 342.0,
+            "text": " Now, I have auto overflow."
+        },
+        {
+            "id": 75,
+            "start": 342.0,
+            "end": 346.0,
+            "text": " I will do height of small pieces."
+        },
+        {
+            "id": 76,
+            "start": 346.0,
+            "end": 350.0,
+            "text": " I will do 30."
+        },
+        {
+            "id": 77,
+            "start": 350.0,
+            "end": 354.0,
+            "text": " Now, I can control the overflow and the overflow by."
+        },
+        {
+            "id": 78,
+            "start": 354.0,
+            "end": 358.0,
+            "text": " I can say that if I do overflow X, then I will do hidden."
+        },
+        {
+            "id": 79,
+            "start": 358.0,
+            "end": 362.0,
+            "text": " But if I do Y, then I will scroll."
+        },
+        {
+            "id": 80,
+            "start": 362.0,
+            "end": 366.0,
+            "text": " I can also do this with individual properties."
+        },
+        {
+            "id": 81,
+            "start": 366.0,
+            "end": 370.0,
+            "text": " I can do this with overflow X."
+        },
+        {
+            "id": 82,
+            "start": 370.0,
+            "end": 374.0,
+            "text": " I am doing overflow X."
+        },
+        {
+            "id": 83,
+            "start": 374.0,
+            "end": 378.0,
+            "text": " I will do this with the height of the overflow clip."
+        },
+        {
+            "id": 84,
+            "start": 378.0,
+            "end": 382.0,
+            "text": " I will do this with overflow Y."
+        },
+        {
+            "id": 85,
+            "start": 382.0,
+            "end": 386.0,
+            "text": " I can write the overflow clip with short-hand."
+        },
+        {
+            "id": 86,
+            "start": 386.0,
+            "end": 390.0,
+            "text": " I can write it in 3 or 4 directions."
+        },
+        {
+            "id": 87,
+            "start": 390.0,
+            "end": 398.0,
+            "text": " The overflow clip is hidden in X and auto is in Y."
+        },
+        {
+            "id": 88,
+            "start": 398.0,
+            "end": 402.0,
+            "text": " I will do this with auto."
+        },
+        {
+            "id": 89,
+            "start": 402.0,
+            "end": 406.0,
+            "text": " I will do this with auto."
+        },
+        {
+            "id": 90,
+            "start": 406.0,
+            "end": 410.0,
+            "text": " I will do this with auto."
+        },
+        {
+            "id": 91,
+            "start": 410.0,
+            "end": 414.0,
+            "text": " I can see that this is hidden in Y."
+        },
+        {
+            "id": 92,
+            "start": 414.0,
+            "end": 418.0,
+            "text": " I will do this with auto."
+        },
+        {
+            "id": 93,
+            "start": 418.0,
+            "end": 422.0,
+            "text": " Now, people will ask me, how to do this?"
+        },
+        {
+            "id": 94,
+            "start": 422.0,
+            "end": 426.0,
+            "text": " You will do it."
+        },
+        {
+            "id": 95,
+            "start": 426.0,
+            "end": 430.0,
+            "text": " If you scroll here and hidden here,"
+        },
+        {
+            "id": 96,
+            "start": 430.0,
+            "end": 434.0,
+            "text": " then you will scroll overflow X."
+        },
+        {
+            "id": 97,
+            "start": 434.0,
+            "end": 438.0,
+            "text": " If you scroll here, then you will scroll over here."
+        },
+        {
+            "id": 98,
+            "start": 438.0,
+            "end": 442.0,
+            "text": " I will recommend auto."
+        },
+        {
+            "id": 99,
+            "start": 442.0,
+            "end": 446.0,
+            "text": " If scroll bar is needed, then scroll bar is not available."
+        },
+        {
+            "id": 100,
+            "start": 446.0,
+            "end": 450.0,
+            "text": " You will not get scroll bar."
+        },
+        {
+            "id": 101,
+            "start": 450.0,
+            "end": 452.0,
+            "text": " I hope you understood."
+        },
+        {
+            "id": 102,
+            "start": 452.0,
+            "end": 456.0,
+            "text": " That was all about this scrolling and overflow."
+        },
+        {
+            "id": 103,
+            "start": 456.0,
+            "end": 460.0,
+            "text": " You will understand how to add scroll bar."
+        },
+        {
+            "id": 104,
+            "start": 460.0,
+            "end": 462.0,
+            "text": " We will use it a lot."
+        },
+        {
+            "id": 105,
+            "start": 462.0,
+            "end": 464.0,
+            "text": " If you have not done the success of Sigma or Elephant course,"
+        },
+        {
+            "id": 106,
+            "start": 464.0,
+            "end": 466.0,
+            "text": " then do it."
+        },
+        {
+            "id": 107,
+            "start": 466.0,
+            "end": 468.0,
+            "text": " If you have done it, then do it."
+        },
+        {
+            "id": 108,
+            "start": 468.0,
+            "end": 472.0,
+            "text": " And the data I am updating regularly on the source."
+        },
+        {
+            "id": 109,
+            "start": 472.0,
+            "end": 474.0,
+            "text": " You will get it."
+        },
+        {
+            "id": 110,
+            "start": 474.0,
+            "end": 476.0,
+            "text": " Thank you so much guys for watching this video."
+        },
+        {
+            "id": 111,
+            "start": 476.0,
+            "end": 478.0,
+            "text": " I will see you next time."
+        },
+        {
+            "id": 112,
+            "start": 482.0,
+            "end": 484.0,
+            "text": " Bye."
+        }
+    ]
+}
