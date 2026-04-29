@@ -1,106 +1,63 @@
 # 🚀 Smart Video RAG Assistant
 
-An AI-powered system that allows users to **ask questions directly from video content** and receive **accurate answers with timestamps**.
+An AI-powered system to **ask questions from video content** and get **accurate, timestamp-grounded answers** using open-source LLMs.
 
 ---
 
-## 🔥 Project Overview
+## 🔥 Overview
 
-This project implements a **Retrieval-Augmented Generation (RAG)** pipeline on video data.
+Built an end-to-end **Retrieval-Augmented Generation (RAG)** pipeline on video lectures.
 
-Instead of manually searching through long tutorials, users can:
-
+Instead of manually searching through long videos, users can:
 - Ask natural language questions
 - Get contextual answers
-- Navigate directly to relevant video timestamps
+- Jump directly to relevant timestamps
 
 ---
 
 ## 🧠 Key Features
 
-✅ Semantic search over video transcripts  
-✅ Timestamp-based answer retrieval  
-✅ LLM-powered contextual responses  
-✅ Chat-style interactive UI (Streamlit)  
-✅ Multi-step data pipeline (video → text → embeddings → answers)  
-✅ Fully open-source (no paid APIs required)
+- 🔍 Semantic search over transcripts  
+- ⏱️ Timestamp-based retrieval  
+- 🤖 LLM-powered answers (Ollama)  
+- 💬 Chat-style UI (Streamlit)  
+- ⚙️ End-to-end pipeline (video → text → embeddings → answer)  
+- 🆓 Fully open-source (no paid APIs)
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python**
-- **Pandas / NumPy**
-- **Scikit-learn (cosine similarity)**
-- **Ollama (Local LLM)**
-- **bge-m3 (Embedding model)**
-- **Whisper (Speech-to-text)**
-- **FFmpeg (Audio extraction)**
-- **NLTK (Sentence chunking)**
-- **Joblib (Fast storage)**
-- **Streamlit (UI)**
+**Python, Pandas, NumPy, Scikit-learn**  
+**Ollama (LLM), bge-m3 (Embeddings)**  
+**Whisper, FFmpeg, NLTK**  
+**Joblib, Streamlit**
 
 ---
 
-## 📊 Data Pipeline
+## 📊 Pipeline
 
-### 1. Video Processing
-- 22 videos converted into audio using FFmpeg
-- Audio transcribed into text using Whisper
-
-### 2. Preprocessing
-- Converted transcripts → JSON format
-- Cleaned text (removed filler words)
-- Sentence-based chunking using NLTK
-
-### 3. Embedding
-- Used **bge-m3 model** via Ollama
-- Stored embeddings using **joblib**
-
-### 4. Retrieval (RAG)
-- Cosine similarity search
-- Top-K relevant chunks selected
-- Context passed to LLM
-
-### 5. Generation
-- LLM generates final human-like answer
-- Includes timestamp references
+Video → Audio → Transcript → Chunks → Embeddings → Retrieval → LLM → Answer
 
 ---
 
-## 🎯 Sample Dataset
+## 🎯 Dataset
 
-This project was tested on:
+Tested on:
+- **CodeWithHarry – Web Development Playlist (sample video)**
 
-👉 A sample video from  
-**CodeWithHarry – Web Development Playlist**
-
-Topic includes:
+Topics covered:
 - CSS Overflow
 - Text Overflow
 - Handling long text in containers
 
 ---
 
-## 💡 What Makes This Project Strong
+## 💡 Highlights
 
-✔ End-to-end ML pipeline  
-✔ Real-world use case (education AI)  
-✔ Combines:
-- NLP
-- Vector search
-- LLMs
-- UI development  
-
-✔ Fully reproducible using open-source tools  
-
----
-
-## 🚀 How It Works
-
-
-Video → Audio → Text → Chunks → Embeddings → Retrieval → LLM → Answer
-
+- Real-world AI use case (education)
+- Combines NLP + vector search + LLMs + UI
+- Fully reproducible with open-source tools
 
 ---
 
@@ -108,36 +65,22 @@ Video → Audio → Text → Chunks → Embeddings → Retrieval → LLM → Ans
 
 - What is overflow property?
 - Difference between overflow and text-overflow
-- How to handle long text in div?
-- Where is ellipsis explained in the video?
+- Where is ellipsis explained?
 
 ---
 
-## 🖥️ Running Locally
+## 🖥️ Run Locally
 
 ```bash
-# Step 1
 python Chunks.py
-
-# Step 2
 python create_embeddings.py
-
-# Step 3
 python save_embeddings.py
-
-# Step 4
 streamlit run app.py
-🌍 Future Improvements
-FAISS vector database
-Multi-video selection
-Chat memory across sessions
-Deployment using Groq / OpenAI APIs
-Scaling to full YouTube playlists
-⚠️ Note
-
-This project uses open-source LLMs (Ollama).
-Using advanced APIs like GPT-4/5 can significantly improve accuracy.
-
+🚀 Future Work
+FAISS vector DB
+Multi-video support
+Persistent chat memory
+Deployment (Groq / OpenAI APIs)
 👩‍💻 Author
 
 Bhumika Shaw
