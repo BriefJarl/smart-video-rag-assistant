@@ -1,0 +1,54 @@
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -----------------------------
+# Virtual Environment
+# -----------------------------
+venv/
+env/
+.venv/
+
+# -----------------------------
+# Secrets (VERY IMPORTANT)
+# -----------------------------
+.streamlit/secrets.toml
+.env
+
+# -----------------------------
+# System files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# IDE files
+# -----------------------------
+.vscode/
+.idea/
+
+# -----------------------------
+# Large / Generated Files (RAG)
+# -----------------------------
+clean_chunks.json
+embeddings.json
+output.json
+embeddings.joblib
+
+# -----------------------------
+# Audio / Video / Models (HEAVY)
+# -----------------------------
+Audios/
+Transcripts/
+ffmpeg/
+whisper/
+
+# -----------------------------
+# Optional (if you add later)
+# -----------------------------
+*.log
+*.csv
