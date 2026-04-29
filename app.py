@@ -4,6 +4,7 @@ import numpy as np
 import joblib
 import requests
 import re
+import os
 from sklearn.metrics.pairwise import cosine_similarity
 
 # -----------------------------
@@ -44,15 +45,31 @@ st.markdown("""
 # -----------------------------
 st.sidebar.title("Controls")
 
-top_k = st.sidebar.slider("Top Results", 1, 10, 8)   
-threshold = st.sidebar.slider("Similarity Threshold", 0.1, 1.0, 0.35)  
+top_k = st.sidebar.slider("Top Results", 1, 10, 8)
+threshold = st.sidebar.slider("Similarity Threshold", 0.1, 1.0, 0.35)
 show_chunks = st.sidebar.checkbox("Show Retrieved Chunks", True)
 
 # -----------------------------
-# LOAD DATA
+# LOAD DATA (SAFE VERSION)
 # -----------------------------
 @st.cache_resource
 def load_data():
+    if not os.path.exists("embeddings.joblib"):
+        st.error("embeddings.joblib not found")
+
+        st.info("""
+👉 This app requires precomputed embeddings.
+
+To fix:
+1. Run locally:
+   python Chunks.py
+   python create_embeddings.py
+   python save_embeddings.py
+
+2. Upload embeddings.joblib to GitHub
+""")
+        st.stop()
+
     return joblib.load("embeddings.joblib")
 
 df = load_data()
@@ -61,13 +78,18 @@ df = load_data()
 # EMBEDDING FUNCTION
 # -----------------------------
 def create_embedding(text_list):
-    r = requests.post(
-        "http://localhost:11434/api/embed",
-        json={
-            "model": "bge-m3",
-            "input": text_list
-        }
-    )
+    try:
+        r = requests.post(
+            "http://localhost:11434/api/embed",
+            json={
+                "model": "bge-m3",
+                "input": text_list
+            },
+            timeout=10
+        )
+    except:
+        st.error("Ollama embedding server not running")
+        return []
 
     if r.status_code != 200:
         st.error("Embedding error")
@@ -79,14 +101,19 @@ def create_embedding(text_list):
 # LLM FUNCTION
 # -----------------------------
 def inference(prompt):
-    r = requests.post(
-        "http://localhost:11434/api/generate",
-        json={
-            "model": "llama3",
-            "prompt": prompt,
-            "stream": False
-        }
-    )
+    try:
+        r = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "llama3",
+                "prompt": prompt,
+                "stream": False
+            },
+            timeout=20
+        )
+    except:
+        st.error(" Ollama LLM not running")
+        return ""
 
     if r.status_code != 200:
         st.error("LLM error")
@@ -109,7 +136,7 @@ st.title("Smart Video RAG Assistant")
 st.write("Ask questions from your course videos")
 
 # -----------------------------
-# EXAMPLE QUESTIONS
+# EXAMPLES
 # -----------------------------
 examples = [
     "What is overflow property?",
@@ -139,11 +166,9 @@ if user_input:
 
     st.session_state.messages.append({"role": "user", "content": user_input})
 
-    # EMBEDDING
     query_embedding = create_embedding([user_input])
 
     if not query_embedding:
-        st.error("Embedding failed")
         st.stop()
 
     query_embedding = query_embedding[0]
@@ -155,7 +180,7 @@ if user_input:
     # FILTER
     filtered_indices = [i for i, score in enumerate(similarities) if score > threshold]
 
-    # FALLBACK LOGIC
+    # FALLBACK
     if not filtered_indices:
         sorted_indices = np.argsort(similarities)[::-1]
         top_idx = sorted_indices[:top_k]
@@ -163,13 +188,14 @@ if user_input:
         sorted_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)
         top_idx = sorted_indices[:top_k]
 
-    # LOW CONFIDENCE WARNING
+    # CONFIDENCE
     avg_score = np.mean([similarities[i] for i in top_idx])
     if avg_score < threshold:
-        st.warning("Low confidence answer (limited matching context)")
+        st.warning(" Low confidence answer")
 
     st.write("Max similarity:", float(max(similarities)))
 
+    # CONTEXT
     context = ""
     for idx in top_idx:
         row = df.iloc[idx]
@@ -179,30 +205,29 @@ if user_input:
         ---
         """
 
+    # PROMPT
     prompt = f"""
-    You are a helpful assistant for a web development course.
+You are a helpful assistant for a web development course.
 
-    Use the context below to answer the question.
-    If the context is limited, still try to provide a helpful answer using general knowledge.
+Use the context below to answer the question.
+If context is limited, still give a helpful answer.
 
-    Context:
-    {context}
+Context:
+{context}
 
-    Question:
-    {user_input}
+Question:
+{user_input}
 
-    Give a clear and helpful answer.
-    Mention timestamps if relevant.
-    """
+Answer clearly and mention timestamps if possible.
+"""
 
-    # LLM CALL
-    with st.spinner("Searching and generating answer..."):
+    with st.spinner("Generating answer..."):
         answer = inference(prompt)
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
 
 # -----------------------------
-# DISPLAY CHAT
+# CHAT DISPLAY
 # -----------------------------
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -219,9 +244,6 @@ if user_input and show_chunks:
         row = df.iloc[idx]
 
         st.write(f"Time: {row.get('start', 'NA')} - {row.get('end', 'NA')}")
-
         st.progress(float(similarities[idx]))
-
         st.markdown(highlight(row.get("text", ""), user_input))
-
         st.write("---")
