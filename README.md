@@ -21,7 +21,10 @@ Get LLM-generated answers grounded in context + timestamps
 🆓 Fully Open-Source (No Paid APIs)
 🛠️ Tech Stack
 💻 Core
-Python, Pandas, NumPy, Scikit-learn
+Python
+Pandas
+NumPy
+Scikit-learn
 🤖 AI / NLP
 LLaMA 3 (via Ollama) – Local LLM for response generation
 BGE-M3 Embeddings – High-quality semantic vector representations
@@ -44,15 +47,15 @@ Tested on:
 
 CodeWithHarry – Web Development Playlist (sample video)
 
-Example topics:
+Example Topics:
 
 CSS Overflow
 Text Overflow
 Handling long text in containers
 💡 Engineering Highlights
 Designed a modular RAG architecture for unstructured video data
-Implemented semantic retrieval pipeline using vector embeddings
-Built a context-aware QA system combining retrieval + generation
+Implemented semantic retrieval using vector embeddings
+Built a context-aware QA system (retrieval + generation)
 Enabled timestamp grounding for explainable AI responses
 Optimized for local inference using open-source LLMs
 🧪 Example Queries
@@ -68,7 +71,7 @@ streamlit run app.py
 🔹 FAISS / Vector Database integration
 🔹 Multi-video knowledge base
 🔹 Conversational memory (chat history)
-🔹 Cloud deployment (OpenAI / Groq / APIs)
+🔹 Cloud deployment (OpenAI / Groq APIs)
 🔹 UI/UX enhancements
 👩‍💻 Author
 
