@@ -1,87 +1,75 @@
-# 🚀 Smart Video RAG Assistant
+🚀 Smart Video RAG Assistant
 
-An AI-powered system to **ask questions from video content** and get **accurate, timestamp-grounded answers** using open-source LLMs.
+An AI-powered Retrieval-Augmented Generation (RAG) system that enables users to query video content using natural language and receive accurate, context-aware answers with timestamp grounding.
 
----
+🔥 Overview
 
-## 🔥 Overview
+This project builds a production-style end-to-end RAG pipeline on video data, transforming unstructured multimedia content into a searchable knowledge system.
 
-Built an end-to-end **Retrieval-Augmented Generation (RAG)** pipeline on video lectures.
+Instead of manually scrubbing through long videos, users can:
 
-Instead of manually searching through long videos, users can:
-- Ask natural language questions
-- Get contextual answers
-- Jump directly to relevant timestamps
-
----
-
-## 🧠 Key Features
-
-- 🔍 Semantic search over transcripts  
-- ⏱️ Timestamp-based retrieval  
-- 🤖 LLM-powered answers (Ollama)  
-- 💬 Chat-style UI (Streamlit)  
-- ⚙️ End-to-end pipeline (video → text → embeddings → answer)  
-- 🆓 Fully open-source (no paid APIs)
-
----
-
-## 🛠️ Tech Stack
-
-**Python, Pandas, NumPy, Scikit-learn**  
-**Ollama (LLM), bge-m3 (Embeddings)**
-**Vector search, Cosine similarity**
-**Whisper, FFmpeg, NLTK**  
-**Joblib, Streamlit**
-
----
-
-## 📊 Pipeline
-
-Video → Audio → Transcript → Chunks → Embeddings → Retrieval → LLM → Answer
-
----
-
-## 🎯 Dataset
+Ask questions in natural language
+Retrieve the most relevant video segments
+Get LLM-generated answers grounded in context + timestamps
+🧠 Key Features
+🔍 Semantic Search over video transcripts
+⏱️ Timestamp-aware Retrieval for precise navigation
+🤖 LLM-powered Answer Generation (LLaMA 3 via Ollama)
+🧩 Context-aware Chunking Strategy
+💬 Interactive Chat Interface (Streamlit)
+⚙️ End-to-End Pipeline (Video → Text → Embeddings → Retrieval → Answer)
+🆓 Fully Open-Source (No Paid APIs)
+🛠️ Tech Stack
+💻 Core
+Python, Pandas, NumPy, Scikit-learn
+🤖 AI / NLP
+LLaMA 3 (via Ollama) – Local LLM for response generation
+BGE-M3 Embeddings – High-quality semantic vector representations
+Whisper – Speech-to-text transcription
+🔍 Retrieval System
+Vector Search (Semantic Retrieval)
+Cosine Similarity – Ranking relevant chunks
+Chunking Strategy – Context-preserving segmentation
+⚙️ Data Pipeline
+FFmpeg – Audio extraction from video
+NLTK – Text preprocessing
+Joblib – Efficient embedding storage
+🌐 Interface
+Streamlit – Interactive query UI
+⚡ System Pipeline
+Video → Audio → Transcript → Chunking → Embeddings → Vector Search → LLM → Answer
+📊 Dataset
 
 Tested on:
-- **CodeWithHarry – Web Development Playlist (sample video)**
 
-Topics covered:
-- CSS Overflow
-- Text Overflow
-- Handling long text in containers
+CodeWithHarry – Web Development Playlist (sample video)
 
----
+Example topics:
 
-## 💡 Highlights
-
-- Real-world AI use case (education)
-- Combines NLP + vector search + LLMs + UI
-- Fully reproducible with open-source tools
-
----
-
-## 🧪 Example Queries
-
-- What is overflow property?
-- Difference between overflow and text-overflow
-- Where is ellipsis explained?
-
----
-
-## 🖥️ Run Locally
-
-```bash
+CSS Overflow
+Text Overflow
+Handling long text in containers
+💡 Engineering Highlights
+Designed a modular RAG architecture for unstructured video data
+Implemented semantic retrieval pipeline using vector embeddings
+Built a context-aware QA system combining retrieval + generation
+Enabled timestamp grounding for explainable AI responses
+Optimized for local inference using open-source LLMs
+🧪 Example Queries
+What is overflow property?
+Difference between overflow and text-overflow
+Where is ellipsis explained?
+🖥️ Run Locally
 python Chunks.py
 python create_embeddings.py
 python save_embeddings.py
 streamlit run app.py
-🚀 Future Work
-FAISS vector DB
-Multi-video support
-Persistent chat memory
-Deployment (Groq / OpenAI APIs)
+🚀 Future Improvements
+🔹 FAISS / Vector Database integration
+🔹 Multi-video knowledge base
+🔹 Conversational memory (chat history)
+🔹 Cloud deployment (OpenAI / Groq / APIs)
+🔹 UI/UX enhancements
 👩‍💻 Author
 
 Bhumika Shaw
