@@ -110,7 +110,7 @@ python create_embeddings.py
 python save_embeddings.py
 
 # Step 4: Run the app
-streamlit run rag_query.py
+python run rag_query.py
 
 🚀 Future Improvements
 🔹 FAISS / Vector Database integration
