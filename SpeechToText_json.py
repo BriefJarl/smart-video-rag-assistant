@@ -6,11 +6,9 @@ print("Starting...")
 # Load model
 model = whisper.load_model("base")
 print("Model loaded")
-
-# Transcribe ONLY sample.mp3
 result = model.transcribe(
     audio="Audios/sample.mp3",
-    task="translate",          # converts Hinglish to English
+    task="translate",
     word_timestamps=False
 )
 
@@ -30,8 +28,6 @@ final_output = {
     "full_text": result["text"],
     "chunks": chunks
 }
-
-#JSON
 with open("output.json", "w", encoding="utf-8") as f:
     json.dump(final_output, f, indent=4)
 
