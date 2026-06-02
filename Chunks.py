@@ -1,10 +1,6 @@
 import json
 import nltk
 from nltk.tokenize import sent_tokenize
-
-# -----------------------------
-# CLEAN TEXT
-# -----------------------------
 def clean_text(text):
     fillers = ["uh", "um", "you know", "like", "okay", "so", "hmm"]
 
@@ -15,10 +11,6 @@ def clean_text(text):
 
     return text.strip()
 
-
-# -----------------------------
-# CREATE CHUNKS WITH TIMESTAMP
-# -----------------------------
 def create_chunks_with_time(data, max_chunk_size=300):
     final_chunks = []
     chunk_id = 0
@@ -58,10 +50,6 @@ def create_chunks_with_time(data, max_chunk_size=300):
 
     return final_chunks
 
-
-# -----------------------------
-# MAIN EXECUTION
-# -----------------------------
 print("Loading original chunks...")
 
 with open("output.json", "r", encoding="utf-8") as f:
@@ -75,9 +63,6 @@ clean_chunks = create_chunks_with_time(data)
 
 print(f"Created {len(clean_chunks)} clean chunks")
 
-# -----------------------------
-# SAVE
-# -----------------------------
 with open("clean_chunks.json", "w", encoding="utf-8") as f:
     json.dump(clean_chunks, f, indent=4)
 
