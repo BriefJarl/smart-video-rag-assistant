@@ -3,7 +3,7 @@ import json
 
 print("Starting embedding process...")
 
-# Load your JSON file
+# Loading JSON file
 with open("output.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
@@ -11,7 +11,7 @@ chunks = data["chunks"] if isinstance(data, dict) else data
 
 print(f"Total chunks: {len(chunks)}")
 
-# Function to create embedding
+#Create embedding
 def create_embedding(text):
     response = requests.post(
         "http://localhost:11434/api/embeddings",
