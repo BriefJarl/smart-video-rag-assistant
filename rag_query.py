@@ -5,17 +5,10 @@ import joblib
 from sklearn.metrics.pairwise import cosine_similarity
 
 print("Starting RAG System...")
-
-# -----------------------------
-# LOAD DATA (FAST WITH JOBLIB)
-# -----------------------------
 df = joblib.load("embeddings.joblib")
 
 print(f"Loaded {len(df)} chunks")
 
-# -----------------------------
-# EMBEDDING FUNCTION
-# -----------------------------
 def create_embedding(text_list):
     response = requests.post(
         "http://localhost:11434/api/embed",
@@ -31,15 +24,11 @@ def create_embedding(text_list):
 
     return response.json().get("embeddings", [])
 
-
-# -----------------------------
-# LLM FUNCTION
-# -----------------------------
 def inference(prompt):
     response = requests.post(
         "http://localhost:11434/api/generate",
         json={
-            "model": "llama3",   # make sure installed (ollama pull llama3)
+            "model": "llama3",  
             "prompt": prompt,
             "stream": False
         }
@@ -50,11 +39,6 @@ def inference(prompt):
         return ""
 
     return response.json().get("response", "")
-
-
-# -----------------------------
-# ASK QUESTION
-# -----------------------------
 query = input("\nAsk a question: ")
 print(f"\nQuestion: {query}")
 
@@ -66,16 +50,10 @@ if not query_embedding:
 
 query_embedding = query_embedding[0]
 
-# -----------------------------
-# SIMILARITY
-# -----------------------------
 matrix = np.vstack(df["embedding"].values)
 
 similarities = cosine_similarity(matrix, [query_embedding]).flatten()
 
-# -----------------------------
-# FILTER LOW-QUALITY MATCHES
-# -----------------------------
 threshold = 0.55
 
 filtered_indices = [i for i, score in enumerate(similarities) if score > threshold]
@@ -84,18 +62,13 @@ if not filtered_indices:
     print("\nNo relevant answer found. Try a better question.")
     exit()
 
-# -----------------------------
-# TOP RESULTS (SORTED)
-# -----------------------------
+# top 5 results
 top_k = 5
 
 sorted_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)
 
 top_idx = sorted_indices[:top_k]
 
-# -----------------------------
-# PRINT RETRIEVED CHUNKS (DEBUG / OPTIONAL)
-# -----------------------------
 print("\nTop Relevant Chunks:\n")
 
 for idx in top_idx:
@@ -107,11 +80,6 @@ for idx in top_idx:
     print("Text     :")
     print(row['text'])
     print("\n" + "=" * 60 + "\n")
-
-
-# -----------------------------
-# BUILD CONTEXT FOR LLM
-# -----------------------------
 context = ""
 
 for idx in top_idx:
@@ -123,10 +91,6 @@ Time: {row.get('start', 'NA')} - {row.get('end', 'NA')}
 Content: {row.get('text', '')}
 ---
 """
-
-# -----------------------------
-# PROMPT ENGINEERING
-# -----------------------------
 prompt = f"""
 You are a helpful assistant for a web development course.
 
@@ -146,10 +110,6 @@ Instructions:
 
 Final Answer:
 """
-
-# -----------------------------
-# GENERATE FINAL ANSWER
-# -----------------------------
 response = inference(prompt)
 
 print("\nFinal Answer:\n")
