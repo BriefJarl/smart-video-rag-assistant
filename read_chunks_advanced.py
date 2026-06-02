@@ -4,18 +4,15 @@ import pandas as pd
 
 print("Starting advanced embedding process...")
 
-# Load JSON
+# Loading json.....
 with open("output.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 chunks = data["chunks"] if isinstance(data, dict) else data
 
-# SORT by start time
 chunks = sorted(chunks, key=lambda x: x["start"])
 
 print(f"Total chunks: {len(chunks)}")
-
-# Batch embedding function (IMPORTANT CHANGE)
 def create_embedding(text_list):
     response = requests.post(
         "http://localhost:11434/api/embed",
